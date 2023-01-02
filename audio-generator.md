@@ -1,7 +1,7 @@
 
 # Utilizando o OpenAI e o Azure Speech Service para criar áudio a partir de dados
 
-Fluxo: 
+### Fluxo 
 
 1. O aplicativo começa a executar e faz uma solicitação HTTP para obter um JSON de um servidor externo.
 
@@ -22,3 +22,9 @@ Fluxo:
 9. O aplicativo pode então reproduzir o áudio para o usuário ou exibir o texto gerado pelo OpenAI na interface do usuário.
 
 10. O aplicativo pode continuar a executar esses passos várias vezes, sempre que houver uma nova solicitação de geração de áudio ou texto.
+
+
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/38250160/210195042-c489eba3-60a3-4f8d-b527-2e0598e5451e.png">
+</p>
