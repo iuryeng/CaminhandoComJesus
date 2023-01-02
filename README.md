@@ -1,1 +1,1 @@
-é um aplicativo que ajuda os usuários a aprender sobre as virtudes cristãs através de explicações de versículos da Bíblia. Ele oferece uma jornada guiada pelas virtudes, com recursos para aprofundar seus conhecimentos e aplicar essas virtudes à vida diária.
+É um aplicativo que ajuda os usuários a aprender sobre as virtudes cristãs através de explicações de versículos da Bíblia. Ele oferece uma jornada guiada pelas virtudes, com recursos para aprofundar seus conhecimentos e aplicar essas virtudes à vida diária.
