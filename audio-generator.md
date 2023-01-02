@@ -3,6 +3,10 @@
 
 ### Fluxo 
 
+O fluxo de aplicativo descrito anteriormente tem como intuito automatizar o processo de geração de explicações de versículos bíblicos. Ele faz isso consumindo um JSON com informações sobre os versículos da Bíblia, enviando essas informações para o OpenAI para que ele gere um texto explicativo, e então enviando esse texto para o Azure Speech Service para que ele possa ser convertido em áudio.
+
+O objetivo final é permitir que o aplicativo gere explicações de versículos bíblicos de maneira automatizada, sem a necessidade de intervenção humana. Isso pode ser útil em vários contextos, como em aplicativos de estudo bíblico, podcasts ou programas de rádio cristãos.
+
 1. O aplicativo começa a executar e faz uma solicitação HTTP para obter um JSON de um servidor externo.
 
 2. O servidor envia o JSON de volta para o aplicativo, que então processa as informações contidas no JSON.
