@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* Define a cor de fundo da página */
+        body {
+            background-color: #f0f0f0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        /* Define a fonte padrão da página */
+        body,
+        h1,
+        h2,
+        p {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Define estilos para os cabeçalhos */
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #555;
+            margin-bottom: 16px;
+        }
+
+        /* Define estilos para os parágrafos */
+        p {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        /* Define o tamanho do controle de áudio */
+        audio {
+            width: 500px;
+        }
+
+
+
+        audio::-webkit-media-controls-play-button,
+
+        audio::-webkit-media-controls-fullscreen-button {
+            border-radius: 50%;
+            /* Adiciona o raio de arredondamento */
+            background-color: rgb(233, 202, 149);
+            color: #fff;
+        }
+
+        /* Define a cor do slider do controle de áudio */
+        audio::-webkit-media-controls-timeline {
+            background-color: #f0f0f0;
+
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        button {
+            background: rgb(233, 202, 149);
+            color: #333;
+            border-radius: 15px;
+            border: none;
+            padding: 4px 8px;
+            cursor: pointer;
+            outline: none;
+            margin-right: 2px;
+            margin-top: 4px;
+        }
+
+        button:active {
+            background: #ccc;
+        }
+
+        .card {
+            border: 1px solid rgb(232, 234, 226);
+            background-color: rgb(231, 229, 221);
+            color: white;
+
+        }
+
+        .card-header {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .card-body {
+            padding: 10px;
+        }
+
+        .card-body-paragraph {
+            font-size: 14px;
+            color: #777;
+
+        }
+
+        .versiculo-btn {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<title>Caminhando com Deus: acompanhe sua caminhada espiritual com a Bíblia</title>
+<h1>🤖Caminhando com Deus</h1>
+<h4></h4>Acompanhe sua caminhada espiritual com a Bíblia!</h4>
+<p id="intro">Bem-vindo ao aplicativo Caminhando com Jesus! Aqui, você encontrará um guia diário de passagens bíblicas
+    para acompanhar sua caminhada espiritual. Basta clicar no botão "Obter Reflexão" e um texto aleatório da Bíblia será
+    exibido para você, junto com uma explicação e um áudio explicativo. Usando o aplicativo todos os dias, você pode se
+    conectar com Jesus e encontrar força, esperança e amor na Palavra de Deus. Comece sua jornada com o Caminhando com
+    Jesus agora mesmo!</p>
+
+<a href="http://127.0.0.1:5500/play.html" target="blank">
+<button type="button" name="dayleVersiculo" id="#obter-reflexao-btn"> 🕊️Obter Reflexão da Bíblia</button>
+</a>
+<button type="button" name="dayleVersiculo" id="obter-reflexao-btn"> 📖 Leituras</button>
+<a href="http://127.0.0.1:5500" target="blank">
+    <button type="button" name="dayleVersiculo" id="obter-reflexao-btn"> 💚 Meus Likes</button>
+</a>
+
+<div id="divTexto">
+
+</div>
+
+
+
+
+<!--<div class="card">
+  <div class="card-header">
+    <h3>Informações do Aplicativo</h3>
+  </div>
+  <div class="card-body">
+    <p class="card-body-paragraph">🔑 Total Reflexões: 120</p>
+    <p class="card-body-paragraph">Total Versículos: 300</p>
+    <p class="card-body-paragraph">🕰️Total de horas de Audio: 0.5 h</p>
+    <p class="card-body-paragraph">🎉Virtudes: 💖 14 Amor, 15 Fé, 20 Paciencia </p> 
+  </div>
+</div>-->
+<script>
+
+    let leituras = [];
+    const audio = document.getElementById("audio");
+    const divTexto = document.getElementById("divTexto");
+    let id = '';
+    let titulo = '';
+    let autor = '';
+    let texto = '';
+    let explicacao = '';
+
+
+
+    fetch("/Dataset/leituras.json")
+        .then(response => response.json())
+        .then(data => {
+            // percorre todo o json e armazena os dados em uma array de versiculos 
+            for (let i = 0; i < data.length; i++) {
+
+                id = data[i]['id'];
+                //capitulo sorteado
+                titulo = data[i]['titulo'];
+                //autor 
+                autor = data[i]['autor'];
+                //livro sorteado
+                livro = data[i]['livro'];
+                // texto sorteado
+                texto = data[i]['texto'];
+                // caminho do audio
+                caminho = data[i]['caminho'];
+                // explicacao do versiculo 
+                explicacao = data[i]['explicacao'];
+
+                const novoTitulo = document.createAttribute('h2');
+                const novoParagrafo = document.createElement('p');
+                const novaExplicacao = document.createElement('p')
+
+                novoTitulo.innerHTML += titulo
+                novoParagrafo.innerHTML += `<button type="button" class="versiculo-btn "onclick="pegarID(${id} );"> ${id}</button>` + `<strong><i>"${texto}"</i></strong>`  ;
+                novaExplicacao.innerHTML += `<ul><li>${data[i]['explicacao']}</li></li><li><audio id="audio" src="${caminho}" controls></audio></li><button type="button" name="" id="" onclick=";">💚 4,3mil </button><button type="button" name="" id="" onclick=";"> ✒️ ${autor} </button><button type="button" name="" id="" onclick=";"> 📚 ${livro} </button></ul>`
+
+                // adicionar id do titulo
+                novoTitulo.id = `titulo-${id}`
+                // adicionar id do texto
+                novoParagrafo.id = `texto-${id}`
+                // adiciona a explicação
+                novaExplicacao.id = `explicacao-${id}`
+                // deixa escondido a explicação até que o botao com o numero do versiculo seja apertado
+                novaExplicacao.style.display = "none";
+                // Adicionar elemento p a div
+
+                divTexto.appendChild(novoParagrafo);
+                divTexto.appendChild(novaExplicacao);
+
+            }
+
+
+            document.getElementById("titulo").innerHTML = titulo;
+            document.getElementById("livro").innerHTML = livro;
+            document.getElementById("autor").innerHTML = autor;
+
+
+            audio.src = caminho;
+
+        });
+
+    function pegarID(id) {
+
+        var explicacao = document.getElementById(`explicacao-${id}`);
+        if (explicacao.style.display === 'block') {
+            explicacao.style.display = 'none';
+        } else {
+            explicacao.style.display = 'block';
+        }
+    }
+
+</script>
+
+</body>
+
+</html>

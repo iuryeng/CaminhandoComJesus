@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* Define a cor de fundo da página */
+    body {
+      background-color: #f0f0f0;
+    }
+
+    /* Define a fonte padrão da página */
+    body,
+    h1,
+    h2,
+    p {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Define estilos para os cabeçalhos */
+    h1 {
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    /* Define estilos para os parágrafos */
+    p {
+      font-size: 16px;
+      color: #777;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    /* Define o tamanho do controle de áudio */
+    audio {
+      width: 500px;
+    }
+
+
+
+    audio::-webkit-media-controls-play-button,
+
+    audio::-webkit-media-controls-fullscreen-button {
+      border-radius: 50%;
+      /* Adiciona o raio de arredondamento */
+      background-color: rgb(233, 202, 149);
+      color: #fff;
+    }
+
+    /* Define a cor do slider do controle de áudio */
+    audio::-webkit-media-controls-timeline {
+      background-color: #f0f0f0;
+
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    button {
+      background: rgb(233, 202, 149);
+      color: #333;
+      border-radius: 15px;
+      border: none;
+      padding: 4px 8px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    button:active {
+      background: #ccc;
+    }
+
+    .card {
+      border: 1px solid rgb(232, 234, 226);
+      background-color: rgb(231, 229, 221);
+      color: white;
+
+    }
+
+    .card-header {
+      color: #333;
+      font-weight: bold;
+    }
+
+    .card-body {
+      padding: 10px;
+    }
+
+    .card-body-paragraph {
+      font-size: 14px;
+      color: #777;
+
+    }
+
+    .versiculo-btn {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+
+<title>Caminhando com Deus: acompanhe sua caminhada espiritual com a Bíblia</title>
+<h1>🤖Caminhando com Deus</h1>
+<h4></h4>Acompanhe sua caminhada espiritual com a Bíblia!</h4>
+<p id="intro">Bem-vindo ao aplicativo Caminhando com Jesus! Aqui, você encontrará um guia diário de passagens bíblicas
+  para acompanhar sua caminhada espiritual. Basta clicar no botão "Obter Reflexão" e um texto aleatório da Bíblia será
+  exibido para você, junto com uma explicação e um áudio explicativo. Usando o aplicativo todos os dias, você pode se
+  conectar com Jesus e encontrar força, esperança e amor na Palavra de Deus. Comece sua jornada com o Caminhando com
+  Jesus agora mesmo!</p>
+
+
+
+<button type="button" name="dayleVersiculo" id="#obter-reflexao-btn" onclick="location.reload();"> 🕊️ ObterReflexão
+</button>
+<a href="http://127.0.0.1:5500/leituras.html" target="blank">
+  <button type="button" name="dayleVersiculo" id="obter-leituras-btn"> 📖 Leituras</button>
+
+</a>
+
+
+<a href="http://127.0.0.1:5500" target="blank">
+  <button type="button" name="dayleVersiculo" id="obter-reflexao-btn"> 💚 Meus Likes</button>
+</a>
+<h3><spam id="livro"></spam> Capitulo: <spam id="capitulo"></spam></strong></h3>
+<div id="divTexto">
+
+</div>
+<h3>Reflexão</h3>
+
+<p id="explicacao"></p>
+<audio id="audio" src="" controls></audio>
+
+<h3>Virtudes</h3>
+<p>
+
+  <button type="button" class="virtudes-btn" name="fe" id="#fe-virtudes-btn" onclick=";"> 🙏🏻 12 </button>
+  <button type="button" class="virtudes-btn" name="amor" id="#amor-virtudes-btn" onclick=";"> 💖 14</button>
+  <button type="button" class="virtudes-btn" name="honra" id="#honra-virtudes-btn" onclick=";"> 👑 15 </button>
+
+
+</p>
+
+
+
+<!--<div class="card">
+  <div class="card-header">
+    <h3>Informações do Aplicativo</h3>
+  </div>
+  <div class="card-body">
+    <p class="card-body-paragraph">🔑 Total Reflexões: 120</p>
+    <p class="card-body-paragraph">Total Versículos: 300</p>
+    <p class="card-body-paragraph">🕰️Total de horas de Audio: 0.5 h</p>
+    <p class="card-body-paragraph">🎉Virtudes: 💖 14 Amor, 15 Fé, 20 Paciencia </p> 
+  </div>
+</div>-->
+<script>
+
+  let versiculos = [];
+  let randomVersiculo = [];
+  let versiculo = '';
+  let capitulo = '';
+  let livro = '';
+  let texto = '';
+  let caminho = '';
+  let explicacao = '';
+  const audio = document.getElementById("audio");
+  const divTexto = document.getElementById("divTexto");
+  const sortearVersiculoBtn = document.querySelector('#obter-reflexao-btn');
+
+
+
+  fetch("/Dataset/bibliaExplicada.json")
+    .then(response => response.json())
+    .then(data => {
+      // percorre todo o json e armazena os dados em uma array de versiculos 
+      for (let i = 0; i < data.length; i++) {
+        versiculos.push(data[i])
+      }
+
+      // o versiculo sorteado
+      let sortVersiculo = getRandomObjectInArray(versiculos);
+      // resultado contendo os versiculo contidos em um capitulo
+      let resultado = [];
+      // armazena o versiculo sorteado no array randomVersiculo
+      randomVersiculo.push(sortVersiculo);
+      //versiculo sorteado
+      versiculo = randomVersiculo[0]['versiculo'];
+      //capitulo sorteado
+      capitulo = randomVersiculo[0]['capitulo'];
+      //livro sorteado
+      livro = randomVersiculo[0]['livro'];
+      // texto sorteado
+      texto = randomVersiculo[0]['texto'];
+      // caminho do audio
+      caminho = randomVersiculo[0]['caminho'];
+      // explicacao do versiculo 
+      //explicacao = randomVersiculo[0]['explicacao'];
+
+
+
+      for (let i = 0; i < data.length; i++) {
+        let objetoAtual = data[i];
+        if (objetoAtual.livro == livro && objetoAtual.capitulo == capitulo) {
+          resultado.push(objetoAtual);
+        }
+      }
+
+      // Percorrer o array de resultados
+      for (let i = 0; i < resultado.length; i++) {
+        // Criar elemento p
+        const novoParagrafo = document.createElement('p');
+        const novaExplicacao = document.createElement('p')
+        // Adicionar conteúdo do resultado atual ao elemento p
+        novoParagrafo.innerHTML += `<button type="button" class="versiculo-btn "onclick="pegarID(${resultado[i]['versiculo']} );"> ${resultado[i]['versiculo']}</button>` + resultado[i]['texto'];
+        novaExplicacao.innerHTML += `<ul><li>${resultado[i]['explicacao']}</li><button type="button" name="" id="" onclick=";">💚 4,3mil </button></ul>`
+        // adicionar id
+        novoParagrafo.id = `versiculo-${i}`
+        // adiciona a explicação
+        novaExplicacao.id = `explicacao-${resultado[i]['versiculo']}`
+        // deixa escondido a explicação até que o botao com o numero do versiculo seja apertado
+        novaExplicacao.style.display = "none";
+        // Adicionar elemento p a div
+        divTexto.appendChild(novoParagrafo);
+        divTexto.appendChild(novaExplicacao)
+
+      }
+
+
+      document.getElementById("capitulo").innerHTML = capitulo;
+      document.getElementById("livro").innerHTML = livro;
+      // document.getElementById("versiculo").innerHTML = versiculo;
+
+      //document.getElementById("texto").innerHTML = texto;
+      //document.getElementById("explicacao").innerHTML = explicacao;
+      audio.src = caminho;
+
+    });
+
+  function pegarID(versiculo) {
+
+    var explicacao = document.getElementById(`explicacao-${versiculo}`);
+    if (explicacao.style.display === 'block') {
+      explicacao.style.display = 'none';
+    } else {
+      explicacao.style.display = 'block';
+    }
+
+  }
+
+
+
+
+
+
+  function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function getRandomObjectInArray(array) {
+    const index = getRandomIntInclusive(0, array.length - 1);
+    return array[index];
+  }
+
+</script>
+
+</body>
+
+</html>
