@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "titulo": "A chave é a nossa interpretação.",
+        "autor": "Epicteto",
+        "livro":"A arte de viver",
+        "texto": "Se você está sofrendo por coisas externas, não são elas que estão te perturbando, mas o seu próprio julgamento sobre elas. E está em seu poder anular este julgamento agora.",
+        "explicacao":"Essa frase sugere que a fonte de sofrimento não é a situação externa em si, mas sim a forma como interpretamos e julgamos essa situação. Em outras palavras, o sofrimento é uma resposta mental e emocional às coisas que acontecem conosco, e não uma consequência direta dessas coisas.Isso significa que, em vez de sofrer por coisas externas, podemos escolher não julgar essas coisas e, em vez disso, encará-las de maneira mais equilibrada e equanimidade. Isso não significa negar os fatos ou fingir que tudo está bem quando não está, mas sim olhar para as coisas com clareza e aceitação, sem se apegar a elas ou resistir a elas.Essa é uma perspectiva poderosa e libertadora, pois nos lembra que temos o poder de escolher como reagimos às coisas e que podemos encontrar paz e equilíbrio, independentemente do que acontece ao nosso redor.",
+        "caminho": "Leituras/Epicteto_Arte_de_Viver_1.wav"
+    },
+    {
+        "id": 2,
+        "titulo": "Liberte-se das preocupações inúteis e viva o agora",
+        "autor": "Epicteto",
+        "livro":"A arte de viver",
+        "texto": "Zele por este momento. Mergulhe em suas particularidades. Seja sensível a que você é, ao seu desafio, à sua realidade. Livre-se dos subterfúgios. Pare de criar problemas desnecessários para si mesmo. Este é o tempo de realmente viver; de se entregar por completo à situação em que você está agora.",
+        "explicacao":"Essa frase nos lembra da importância de estarmos presentes e conscientes no momento presente. Muitas vezes, ficamos distraídos pelo passado ou pelo futuro, ou nos preocupamos com problemas que podem nunca acontecer. Mas esse tipo de pensamento pode nos afastar da vida real e nos impedir de apreciar o que temos agora. A frase também sugere que podemos nos preocupar demais com coisas que, na verdade, não são problemas reais. Esses \"subterfúgios\" podem ser distrações que nos impedem de nos concentrar no que é importante e de nos entregarmos completamente à nossa situação atual.Essa frase nos incentiva a deixar de lado essas distrações e preocupações desnecessárias e a nos concentrarmos no que está acontecendo agora. Isso nos permite \"realmente viver\" e nos entregarmos completamente à situação em que estamos. Isso pode nos ajudar a ser mais presentes e conscientes em nossas vidas e a aproveitar ao máximo o que temos.",
+        "caminho": "Leituras/Epicteto_Arte_de_Viver_2.wav"
+    },
+    {
+        "id": 3,
+        "titulo": "O poder de nossas reações",
+        "autor": "Epicteto",
+        "livro":"A arte de viver",
+        "texto": "O que importa não é o que acontece, mas como você reage",
+        "explicacao":"Essa frase nos lembra que muitas vezes não temos controle sobre o que acontece em nossas vidas, mas podemos escolher como reagimos a essas coisas. A forma como reagimos a um evento pode ter um impacto significativo em como nos sentimos e em como o evento afeta nossas vidas.Por exemplo, se algo ruim acontecer, podemos escolher reagir com raiva ou tristeza, ou podemos escolher encarar o evento com compaixão e determinação para superá-lo. A escolha que fizermos pode influenciar como nos sentimos e como lidamos com a situação.Essa frase também nos incentiva a deixar de lado a tendência de culpar os outros ou as circunstâncias pelo que acontece conosco e a assumir a responsabilidade por nossas próprias reações. Isso pode nos ajudar a ter mais controle sobre nossas emoções e a viver de maneira mais equilibrada e saudável.Em resumo, essa frase nos lembra que, em vez de nos preocuparmos com o que acontece, devemos nos concentrar em como reagimos a essas coisas. Isso nos dá o poder de controlar como esses eventos afetam nossas vidas e nos ajuda a viver de maneira mais positiva e equilibrada.",
+        "caminho": "Leituras/Epicteto_Arte_de_Viver_3.wav"
+    },
+    {
+        "id": 4,
+        "titulo": "Ser autêntico e presente: a marca da perfeição do caráter",
+        "autor": "Marco Aurélio",
+        "livro":"Meditações",
+        "texto": "Esta é a marca da perfeição do caráter — viver cada dia como se fosse o seu último, sem frenesi, preguiça ou qualquer fingimento.",
+        "explicacao":"Essa frase nos lembra da importância de viver cada dia de maneira plena e autêntica. Ela sugere que a perfeição do caráter é viver cada dia como se fosse realmente o último, sem se deixar levar por emoções negativas como o frenesi ou a preguiça, e sem fingir ser algo que não é. Essa é uma perspectiva poderosa, pois nos incentiva a nos concentrar no presente e a aproveitar ao máximo o que temos, em vez de nos preocuparmos com o que já passou ou com o que ainda vai acontecer. Ela nos lembra que cada dia é uma oportunidade única de viver plenamente e de sermos autênticos. Refletindo sobre essa frase, podemos perguntar a nós mesmos: estamos vivendo cada dia de maneira plena e autêntica? Estamos deixando de lado as emoções negativas e os fingimentos, e nos concentrando no presente? Se a resposta for \"não\", talvez seja hora de considerar mudar nossa perspectiva e nos esforçar mais para viver cada dia de maneira plena e autêntica.",
+        "caminho": "Leituras/Marco_Aurelio_Meditacoes_1.wav"
+    }
+]
