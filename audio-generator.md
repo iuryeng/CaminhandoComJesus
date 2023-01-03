@@ -1,7 +1,7 @@
 
 # Utilizando o OpenAI e o Azure Speech Service para criar áudio a partir de dados
 
-### Fluxo 
+### Fluxo: 
 
 O fluxo de aplicativo descrito anteriormente tem como intuito automatizar o processo de geração de explicações de versículos bíblicos. Ele faz isso consumindo um JSON com informações sobre os versículos da Bíblia, enviando essas informações para o OpenAI para que ele gere um texto explicativo, e então enviando esse texto para o Azure Speech Service para que ele possa ser convertido em áudio.
 
@@ -32,3 +32,7 @@ O objetivo final é permitir que o aplicativo gere explicações de versículos 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/38250160/210195042-c489eba3-60a3-4f8d-b527-2e0598e5451e.png">
 </p>
+
+# Solução: 
+
+
