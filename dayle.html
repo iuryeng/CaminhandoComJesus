@@ -209,7 +209,6 @@
       // texto sorteado
       texto = randomVersiculo[0]['texto'];
       // caminho do audio
-      caminho = randomVersiculo[0]['caminho'];
       // explicacao do versiculo 
       //explicacao = randomVersiculo[0]['explicacao'];
 
@@ -219,6 +218,7 @@
         let objetoAtual = data[i];
         if (objetoAtual.livro == livro && objetoAtual.capitulo == capitulo) {
           resultado.push(objetoAtual);
+         
         }
       }
 
@@ -229,7 +229,7 @@
         const novaExplicacao = document.createElement('p')
         // Adicionar conteúdo do resultado atual ao elemento p
         novoParagrafo.innerHTML += `<button type="button" class="versiculo-btn "onclick="pegarID(${resultado[i]['versiculo']} );"> ${resultado[i]['versiculo']}</button>` + resultado[i]['texto'];
-        novaExplicacao.innerHTML += `<ul><li>${resultado[i]['explicacao']}</li><li><audio id="audio" src="${caminho}" controls></audio></li><button type="button" name="" id="" onclick=";">💚 4,3mil </button></ul>`
+        novaExplicacao.innerHTML += `<ul><li>${resultado[i]['explicacao']}</li><li><audio id="audio" src="${resultado[i]['caminho']}" controls></audio></li><button type="button" name="" id="" onclick=";">💚 4,3mil </button></ul>`
         // adicionar id
         novoParagrafo.id = `versiculo-${i}`
         // adiciona a explicação
