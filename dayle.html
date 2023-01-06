@@ -112,6 +112,7 @@
       margin-right: 5px;
     }
   </style>
+
 </head>
 
 <title>Caminhando com Deus: acompanhe sua caminhada espiritual com a Bíblia</title>
@@ -123,54 +124,32 @@
   conectar com Jesus e encontrar força, esperança e amor na Palavra de Deus. Comece sua jornada com o Caminhando com
   Jesus agora mesmo!</p>
 
+<button type="button" name="dayleVersiculo" id="#obter-reflexao-btn" onclick="location.reload();"> 🕊️ ObterReflexão</button>
 
-
-<button type="button" name="dayleVersiculo" id="#obter-reflexao-btn" onclick="location.reload();"> 🕊️ ObterReflexão
-</button>
 <a href="https://iuryeng.github.io/caminhando-com-deus/" target="blank">
   <button type="button" name="dayleVersiculo" id="obter-leituras-btn"> 📖 Leituras</button>
-
 </a>
 
-
-<!--<a href="https://iuryeng.github.io/caminhando-com-deus/" target="blank">
-  <button type="button" name="dayleVersiculo" id="obter-reflexao-btn"> 💚 Meus Likes</button>
-</a>-->
 <h3>
   <spam id="livro"></spam> Capitulo: <spam id="capitulo"></spam></strong>
 </h3>
+
 <div id="divTexto">
 
 </div>
+
 <h3>Reflexão</h3>
 
 <p id="explicacao"></p>
+
 <audio id="audio" src="" controls></audio>
 
-<h3>Virtudes</h3>
-<p>
-
-  <button type="button" class="virtudes-btn" name="fe" id="#fe-virtudes-btn" onclick=";"> 🙏🏻 12 </button>
-  <button type="button" class="virtudes-btn" name="amor" id="#amor-virtudes-btn" onclick=";"> 💖 14</button>
-  <button type="button" class="virtudes-btn" name="honra" id="#honra-virtudes-btn" onclick=";"> 👑 15 </button>
-
-
-</p>
-
-
-
-<!--<div class="card">
-  <div class="card-header">
-    <h3>Informações do Aplicativo</h3>
-  </div>
-  <div class="card-body">
-    <p class="card-body-paragraph">🔑 Total Reflexões: 120</p>
-    <p class="card-body-paragraph">Total Versículos: 300</p>
-    <p class="card-body-paragraph">🕰️Total de horas de Audio: 0.5 h</p>
-    <p class="card-body-paragraph">🎉Virtudes: 💖 14 Amor, 15 Fé, 20 Paciencia </p> 
-  </div>
-</div>-->
 <script>
+
+  const endpoint = "https://iuryeng.github.io/caminhando-com-deus/Dataset/bibliaExplicada.json"
+  const audio = document.getElementById("audio");
+  const divTexto = document.getElementById("divTexto");
+  const sortearVersiculoBtn = document.querySelector('#obter-reflexao-btn');
 
   let versiculos = [];
   let randomVersiculo = [];
@@ -180,18 +159,13 @@
   let texto = '';
   let caminho = '';
   let explicacao = '';
-  const audio = document.getElementById("audio");
-  const divTexto = document.getElementById("divTexto");
-  const sortearVersiculoBtn = document.querySelector('#obter-reflexao-btn');
 
-
-
-  fetch("https://iuryeng.github.io/caminhando-com-deus/Dataset/bibliaExplicada.json")
+  fetch(endpoint)
     .then(response => response.json())
     .then(data => {
       // percorre todo o json e armazena os dados em uma array de versiculos 
       for (let i = 0; i < data.length; i++) {
-        versiculos.push(data[i])
+        versiculos.push(data[i]);
       }
 
       // o versiculo sorteado
@@ -208,17 +182,12 @@
       livro = randomVersiculo[0]['livro'];
       // texto sorteado
       texto = randomVersiculo[0]['texto'];
-      // caminho do audio
-      // explicacao do versiculo 
-      //explicacao = randomVersiculo[0]['explicacao'];
-
-
 
       for (let i = 0; i < data.length; i++) {
         let objetoAtual = data[i];
         if (objetoAtual.livro == livro && objetoAtual.capitulo == capitulo) {
           resultado.push(objetoAtual);
-         
+
         }
       }
 
@@ -231,25 +200,20 @@
         novoParagrafo.innerHTML += `<button type="button" class="versiculo-btn "onclick="pegarID(${resultado[i]['versiculo']} );"> ${resultado[i]['versiculo']}</button>` + resultado[i]['texto'];
         novaExplicacao.innerHTML += `<ul><li>${resultado[i]['explicacao']}</li><li><audio id="audio" src="${resultado[i]['caminho']}" controls></audio></li><!--<button type="button" name="" id="" onclick=";">💚 4,3mil </button>--></ul>`
         // adicionar id
-        novoParagrafo.id = `versiculo-${i}`
+        novoParagrafo.id = `versiculo-${i}`;
         // adiciona a explicação
-        novaExplicacao.id = `explicacao-${resultado[i]['versiculo']}`
+        novaExplicacao.id = `explicacao-${resultado[i]['versiculo']}`;
         // deixa escondido a explicação até que o botao com o numero do versiculo seja apertado
         novaExplicacao.style.display = "none";
         // Adicionar elemento p a div
         divTexto.appendChild(novoParagrafo);
-        divTexto.appendChild(novaExplicacao)
+        divTexto.appendChild(novaExplicacao);
 
       }
 
-
       document.getElementById("capitulo").innerHTML = capitulo;
-      document.getElementById("livro").innerHTML = livro;
-      // document.getElementById("versiculo").innerHTML = versiculo;
-
-      //document.getElementById("texto").innerHTML = texto;
-      //document.getElementById("explicacao").innerHTML = explicacao;
-      audio.src = caminho;
+      document.getElementById("livro").innerHTML = livro;    
+      audio.src = resultado[0]['referencia'];
 
     });
 
@@ -263,11 +227,6 @@
     }
 
   }
-
-
-
-
-
 
   function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
