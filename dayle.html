@@ -46,6 +46,10 @@
       width: 300px;
     }
 
+    li {
+      list-style-type: none;
+    }
+
 
 
     audio::-webkit-media-controls-play-button,
@@ -129,10 +133,12 @@
 </a>
 
 
-<a href="https://iuryeng.github.io/caminhando-com-deus/" target="blank">
+<!--<a href="https://iuryeng.github.io/caminhando-com-deus/" target="blank">
   <button type="button" name="dayleVersiculo" id="obter-reflexao-btn"> 💚 Meus Likes</button>
-</a>
-<h3><spam id="livro"></spam> Capitulo: <spam id="capitulo"></spam></strong></h3>
+</a>-->
+<h3>
+  <spam id="livro"></spam> Capitulo: <spam id="capitulo"></spam></strong>
+</h3>
 <div id="divTexto">
 
 </div>
@@ -223,7 +229,7 @@
         const novaExplicacao = document.createElement('p')
         // Adicionar conteúdo do resultado atual ao elemento p
         novoParagrafo.innerHTML += `<button type="button" class="versiculo-btn "onclick="pegarID(${resultado[i]['versiculo']} );"> ${resultado[i]['versiculo']}</button>` + resultado[i]['texto'];
-        novaExplicacao.innerHTML += `<ul><li>${resultado[i]['explicacao']}</li><button type="button" name="" id="" onclick=";">💚 4,3mil </button></ul>`
+        novaExplicacao.innerHTML += `<ul><li>${resultado[i]['explicacao']}</li><li><audio id="audio" src="${caminho}" controls></audio></li><button type="button" name="" id="" onclick=";">💚 4,3mil </button></ul>`
         // adicionar id
         novoParagrafo.id = `versiculo-${i}`
         // adiciona a explicação
