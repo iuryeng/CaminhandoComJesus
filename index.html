@@ -129,9 +129,9 @@
 <button type="button" name="dayleVersiculo" id="#obter-reflexao-btn"> 🕊️Obter Reflexão da Bíblia</button>
 </a>
 <button type="button" name="dayleVersiculo" id="obter-reflexao-btn"> 📖 Leituras</button>
-<a href="https://iuryeng.github.io/caminhando-com-deus" target="blank">
+<!--<a href="https://iuryeng.github.io/caminhando-com-deus" target="blank">
     <button type="button" name="dayleVersiculo" id="obter-reflexao-btn"> 💚 Meus Likes</button>
-</a>
+</a>-->
 
 <div id="divTexto">
 
@@ -190,7 +190,7 @@
 
                 novoTitulo.innerHTML += titulo
                 novoParagrafo.innerHTML += `<button type="button" class="versiculo-btn "onclick="pegarID(${id} );"> ${id}</button>` + `<strong><i>"${texto}"</i></strong>`  ;
-                novaExplicacao.innerHTML += `<ul><li>${data[i]['explicacao']}</li></li><li><audio id="audio" src="${caminho}" controls></audio></li><button type="button" name="" id="" onclick=";">💚 4,3mil </button><button type="button" name="" id="" onclick=";"> ✒️ ${autor} </button><button type="button" name="" id="" onclick=";"> 📚 ${livro} </button></ul>`
+                novaExplicacao.innerHTML += `<ul><li>${data[i]['explicacao']}</li></li><li><audio id="audio" src="${caminho}" controls></audio></li><!--<button type="button" name="" id="" onclick=";">💚 4,3mil </button>--><button type="button" name="" id="" onclick=";"> ✒️ ${autor} </button><button type="button" name="" id="" onclick=";"> 📚 ${livro} </button></ul>`
 
                 // adicionar id do titulo
                 novoTitulo.id = `titulo-${id}`
